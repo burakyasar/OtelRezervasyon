@@ -1,0 +1,33 @@
+﻿@model mvcotel.Models.OdaM
+@{
+    ViewBag.Title = "OdaEkle";
+}
+
+<h2>OdaEkle</h2>
+
+@*<form method="post" enctype=multipart/formdata></form>*@
+@using (Html.BeginForm("OdaEkle", "Yonetim", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div class="satir">
+        @Html.LabelFor(x => x.Baslik)
+        @Html.TextBoxFor(x => x.Baslik)
+    </div>
+    <div class="satir">
+        @Html.LabelFor(x => x.Fiyat)
+        @Html.TextBoxFor(x => x.Fiyat)
+    </div>
+    <div class="satir">
+        @Html.LabelFor(x => x.m2)
+        @Html.TextBoxFor(x => x.m2, new { @type = "number" })
+    </div>
+    <div class="satir">
+        @Html.LabelFor(x => x.ResimURL)
+        <input type="hidden" name="ResimURL" value="yok.jpg" />
+        <input name="resim" type="file" />
+    </div>
+    <div class="satir hatalar">
+        @Html.ValidationSummary()
+    </div>
+    <input type="submit" value="Kaydet" />
+}
+

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<mvcotel.Models.Galeri>
+
+@{
+    ViewBag.Title = "Galeri Yonet";
+}
+
+<h2>GaleriListe</h2>
+@*<a href="/Yonetim/GaleriEkle/">Galeri Ekle</a>*@
+@Html.ActionLink("Yeni Galeri Ekle", "GaleriEkle")
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+       <p>
+            <span> @item.Baslik</span>
+            <a href="/Yonetim/GaleriSil/@item.ResimID">Sil</a>
+      </p>
+    }
+}
+

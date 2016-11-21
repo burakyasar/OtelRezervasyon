@@ -1,0 +1,25 @@
+﻿@model mvcotel.Models.SliderModel
+@{
+    ViewBag.Title = "SliderEkle";
+}
+
+<h2>SliderEkle</h2>
+@*<form method="post" enctype=multipart/formdata></form>*@
+@using (Html.BeginForm("SliderEkle","Yonetim",FormMethod.Post, new {@enctype ="multipart/form-data" }))
+{
+    <div class="satir">
+        @*<label>Resim:</label>*@
+        @Html.LabelFor(x => x.ResimYolu)
+        <input type="hidden" name="ResimYolu" value="yok.jpg"/>
+        <input type="file" name="resim" />
+
+    </div>
+    <div class="satir">
+        @*<label>sıra</label> <input type="number" name="Sira" />*@
+        @Html.LabelFor(x=>x.Sira)
+        @Html.TextBoxFor(x=>x.Sira, new {@type="number" })
+
+    </div>
+    <div><input type="submit" value="Kaydet" /></div>
+    <div>@Html.ValidationSummary()</div>
+}

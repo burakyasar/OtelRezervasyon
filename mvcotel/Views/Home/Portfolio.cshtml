@@ -1,0 +1,36 @@
+﻿@model IEnumerable<mvcotel.Models.Galeri>
+<section id="portfolio">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title wow fadeInDown">Galeri</h2>
+            <p class="wow fadeInDown">Galeri Hakkında Bilgiler</p>
+        </div>
+        <div class="text-center" style="display:none;">
+            <ul class="portfolio-filter">
+                <li><a class="active" href="#" data-filter="*">All Works</a></li>
+                <li><a href="#" data-filter=".designing">Designing</a></li>
+                <li><a href="#" data-filter=".mobile">Mobile App</a></li>
+                <li><a href="#" data-filter=".development">Development</a></li>
+            </ul><!--/#portfolio-filter-->
+        </div>
+
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <div class="portfolio-items">
+                    <div class="portfolio-item designing">
+                        <div class="portfolio-item-inner">
+                            <img class="img-responsive" src="/Content/galeri/@item.ResimYolu" alt="">
+                            <div class="portfolio-info">
+                                <a class="preview" href="/Content/galeri/@item.ResimYolu" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                            </div>
+                        </div>
+                    </div><!--/.portfolio-item-->
+
+                </div>
+            }
+        }
+            </div><!--/.container-->
+        </section><!--/#portfolio-->

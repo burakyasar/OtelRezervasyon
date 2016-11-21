@@ -1,0 +1,21 @@
+﻿@model IEnumerable<mvcotel.Models.OdaM>
+@{
+    ViewBag.Title = "OdaListele";
+}
+
+<h2>Oda Listele</h2>
+<a href="/Yonetim/OdaEkle/">Oda Ekle</a>
+
+@*@Html.ActionLink("Yeni Oda Ekle", "OdaEkle")*@
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <p>
+            <span>@item.Baslik </span>
+            <a href="/Yonetim/OdaDuzenle/@item.OdaMID">Duzenle</a>
+            <a href="/Yonetim/OdaSil/@item.OdaMID">Sil</a>
+        </p>
+    }
+}

@@ -1,0 +1,25 @@
+﻿@model mvcotel.Models.Galeri
+@{
+    ViewBag.Title = "GaleriEkle";
+}
+
+<h2>Galeri Ekle</h2>
+
+@using (Html.BeginForm("GaleriEkle", "Yonetim", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div class="satir">
+        @Html.LabelFor(x => x.Baslik)
+        @Html.TextBoxFor(x => x.Baslik)
+    </div>
+
+    <div class="satir">
+        @Html.LabelFor(x => x.ResimYolu)
+        @*<input type="hidden" name="ResimYolu" value="yok.jpg" />*@
+        <input name="resim" type="file" />
+    </div>
+    <div class="satir hatalar">
+        @Html.ValidationSummary()
+    </div>
+    <input type="submit" value="Kaydet" />
+}
+
